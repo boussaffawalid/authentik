@@ -46,7 +46,11 @@ Use this when you develop on an Apple Silicon Mac but deploy to a Linux (amd64) 
 # one-time: create a multi-platform builder if you don't have one
 docker buildx create --use --name multiarch
 
+# run from the repo root (where the authentik/ folder is)
 docker buildx build --platform linux/amd64,linux/arm64 --file lifecycle/container/Dockerfile.patch --build-arg AUTHENTIK_TAG=2026.5.3 --tag boussafawalid/authentik-patched:2026.5.3 --push .
+
+# OR, if you are already inside lifecycle/container/
+docker buildx build --platform linux/amd64,linux/arm64 --file Dockerfile.patch --build-arg AUTHENTIK_TAG=2026.5.3 --tag boussafawalid/authentik-patched:2026.5.3 --push ../..
 ```
 
 Then reference the pre-built image in `compose.override.yml`:

@@ -33,7 +33,7 @@ from authentik.core.models import (
     User,
 )
 from authentik.crypto.models import CertificateKeyPair
-from authentik.lib.models import InternallyManagedMixin, SerializerModel, WildcardDomainlessURLValidator
+from authentik.lib.models import DomainlessURLValidator, InternallyManagedMixin, SerializerModel, WildcardDomainlessURLValidator
 from authentik.lib.utils.time import timedelta_string_validator
 from authentik.sources.saml.models import SAMLNameIDPolicy
 
