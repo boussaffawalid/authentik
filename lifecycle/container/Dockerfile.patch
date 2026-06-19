@@ -1,0 +1,11 @@
+ARG AUTHENTIK_IMAGE=ghcr.io/goauthentik/server
+ARG AUTHENTIK_TAG=2026.5.3
+FROM ${AUTHENTIK_IMAGE}:${AUTHENTIK_TAG}
+
+USER root
+COPY authentik/lib/models.py /authentik/lib/models.py
+COPY authentik/providers/saml/models.py /authentik/providers/saml/models.py
+COPY authentik/providers/saml/processors/authn_request_parser.py /authentik/providers/saml/processors/authn_request_parser.py
+COPY authentik/providers/saml/processors/assertion.py /authentik/providers/saml/processors/assertion.py
+COPY authentik/providers/saml/views/flows.py /authentik/providers/saml/views/flows.py
+USER 1000
