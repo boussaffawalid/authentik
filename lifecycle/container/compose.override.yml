@@ -1,0 +1,15 @@
+services:
+  server:
+    build:
+      context: ../..
+      dockerfile: lifecycle/container/Dockerfile.patch
+      args:
+        AUTHENTIK_IMAGE: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}
+        AUTHENTIK_TAG: ${AUTHENTIK_TAG:-2026.5.3}
+  worker:
+    build:
+      context: ../..
+      dockerfile: lifecycle/container/Dockerfile.patch
+      args:
+        AUTHENTIK_IMAGE: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}
+        AUTHENTIK_TAG: ${AUTHENTIK_TAG:-2026.5.3}
